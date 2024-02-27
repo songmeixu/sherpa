@@ -1,6 +1,6 @@
 .DS_Store
 path.sh
-build
+build*/
 dist
 __pycache__
 *.egg-info
