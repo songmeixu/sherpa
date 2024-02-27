@@ -130,10 +130,10 @@ int32_t main(int32_t argc, char *argv[]) {
 
   config.Validate();
 
-  SHERPA_CHECK_EQ(config.feat_config.fbank_opts.frame_opts.samp_freq,
-                  expected_sample_rate)
-      << "The model was trained using training data with sample rate 16000. "
-      << "We don't support resample yet";
+  // The expected model was trained using training data with sample rate
+  // 16000/8000 Hz, that should be the same with the input wav.
+  // We don't support resample yet.
+  expected_sample_rate = config.feat_config.fbank_opts.frame_opts.samp_freq;
 
   SHERPA_CHECK_GE(po.NumArgs(), 1);
 
